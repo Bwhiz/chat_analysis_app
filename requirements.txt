@@ -1,4 +1,4 @@
-﻿re
+re
 regex
 matplotlib
 pandas
@@ -7,3 +7,4 @@ seaborn
 plotly
 collections
 wordcloud
+streamlit
