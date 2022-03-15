@@ -1,10 +1,10 @@
-﻿re
+re
 regex
 matplotlib
 pandas
 emoji
 seaborn
-plotly.express
+plotly
 collections
 wordcloud
 
