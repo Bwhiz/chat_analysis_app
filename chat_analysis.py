@@ -9,8 +9,8 @@ import emoji
 import seaborn as sns
 import plotly.express as px
 from collections import Counter
-#import wordcloud
-#from wordcloud import WordCloud, STOPWORDS
+import wordcloud
+from wordcloud import WordCloud, STOPWORDS
 
 
 #setting default app layout
@@ -178,10 +178,10 @@ with col1:
                 plt.xticks(rotation=90);
 
                 plt.subplots_adjust(wspace=0.4, hspace= 0.5)
-                '''wordcloud = WordCloud(stopwords=STOPWORDS, background_color='white').generate(text)
+                wordcloud = WordCloud(stopwords=STOPWORDS, background_color='white').generate(text)
                 plt.figure(figsize=(12,8))
                 plt.imshow(wordcloud, interpolation='bilinear')
-                plt.axis('off')'''
+                plt.axis('off')
                 st.pyplot(fig);
 
 
