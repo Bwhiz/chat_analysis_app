@@ -1,0 +1,10 @@
+﻿re
+regex
+matplotlib
+pandas
+emoji
+seaborn
+plotly.express
+collections
+wordcloud
+
