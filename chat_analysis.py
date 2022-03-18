@@ -80,8 +80,9 @@ with col1:
         #file handling and conversion to dataframe
         parsedData = []
         
-        conversationPath = str(chat_file.read(),"utf-8") #replace with file upload
-        with open(conversationPath) as fp:
+        #conversationPath = str(chat_file.read(),"utf-8") #replace with file upload
+        #with open(conversationPath) as fp:
+        for fp in chat_line:
             fp.readline() 
             messageBuffer = [] 
             datetime, author = None, None
