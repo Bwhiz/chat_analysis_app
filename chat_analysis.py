@@ -80,8 +80,8 @@ with col1:
         #file handling and conversion to dataframe
         parsedData = []
         
-        conversationPath = StringIO(chat_file.getvalue().decode("utf-8"))  #replace with file upload
-        with open(conversationPath.read(), encoding="utf-8") as fp:
+        conversationPath = str(docx_file.read(),"utf-8") #replace with file upload
+        with open(conversationPath) as fp:
             fp.readline() 
             messageBuffer = [] 
             datetime, author = None, None
