@@ -1,4 +1,3 @@
-re
 regex
 matplotlib
 pandas
