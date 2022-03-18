@@ -81,7 +81,7 @@ with col1:
         parsedData = []
         
         conversationPath = chat_file  #replace with file upload
-        with open(conversationPath.name, encoding="utf-8") as fp:
+        with open(conversationPath, encoding="utf-8") as fp:
             fp.readline() 
             messageBuffer = [] 
             datetime, author = None, None
