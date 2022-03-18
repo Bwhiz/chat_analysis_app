@@ -4,6 +4,5 @@ pandas
 emoji
 seaborn
 plotly
-collections
 wordcloud
 streamlit
