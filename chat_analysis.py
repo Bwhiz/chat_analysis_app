@@ -80,7 +80,7 @@ with col1:
         #file handling and conversion to dataframe
         parsedData = []
         
-        conversationPath = str(docx_file.read(),"utf-8") #replace with file upload
+        conversationPath = str(chat_file.read(),"utf-8") #replace with file upload
         with open(conversationPath) as fp:
             fp.readline() 
             messageBuffer = [] 
