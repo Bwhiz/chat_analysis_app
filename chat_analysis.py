@@ -80,14 +80,13 @@ with col1:
         #file handling and conversion to dataframe
         parsedData = []
         
-        #conversationPath = str(chat_file.read(),"utf-8") #replace with file upload
-        #with open(conversationPath) as fp:
-        for fp in chat_file:
-            #fp.readline() 
+        conversationPath = chat_file #replace with file upload
+        with open(conversationPath, encoding='utf-8') as fp:
+            fp.readline() 
             messageBuffer = [] 
             datetime, author = None, None
             while True:
-                line = fp 
+                line = fp.readline()
                 if not line: 
                     break
                 line = line.strip() 
