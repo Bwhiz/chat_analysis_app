@@ -83,11 +83,11 @@ with col1:
         #conversationPath = str(chat_file.read(),"utf-8") #replace with file upload
         #with open(conversationPath) as fp:
         for fp in chat_file:
-            fp.readline() 
+            #fp.readline() 
             messageBuffer = [] 
             datetime, author = None, None
             while True:
-                line = fp.readline() 
+                line = fp 
                 if not line: 
                     break
                 line = line.strip() 
