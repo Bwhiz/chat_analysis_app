@@ -4,3 +4,5 @@ This is an app made of streamlit that converts whatsapp chats into structured da
 The app can be found [here](https://bwhiz-chat-analysis-app-chat-analysis-jhsets.streamlitapp.com/) .
 
 n.b: This app only works for chats exported from android devices for now. 
+
+![alt text](Screenshot (59)_1.png)
