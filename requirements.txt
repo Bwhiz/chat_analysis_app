@@ -1,6 +1,7 @@
 regex
 matplotlib
 pandas
+numpy
 seaborn
 emoji==1.7.0
 plotly
