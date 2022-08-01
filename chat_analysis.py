@@ -9,8 +9,8 @@ import emoji
 import seaborn as sns
 import plotly.express as px
 from collections import Counter
-import wordcloud
-from wordcloud import WordCloud, STOPWORDS
+#import wordcloud
+#from wordcloud import WordCloud, STOPWORDS
 
 
 #setting default app layout
@@ -75,29 +75,30 @@ col1, col2, col3= st.columns([1,0.0625,2])
 with col1:
     # ------------------------------------------------------------------------------------- #
     chat_file = st.file_uploader(label="Please upload your file: ")
-    if chat_file is not None:
+    if chat_file :
 
         #file handling and conversion to dataframe
         parsedData = []
         
-        conversationPath = chat_file #replace with file upload
-        with open(conversationPath, encoding='utf-8') as fp:
-            fp.readline() 
-            messageBuffer = [] 
-            datetime, author = None, None
-            while True:
-                line = fp.readline()
-                if not line: 
-                    break
-                line = line.strip() 
-                if date_and_time(line): 
-                    if len(messageBuffer) > 0: 
-                        parsedData.append([dateTime, author, ' '.join(messageBuffer)]) 
-                    messageBuffer.clear() 
-                    dateTime, author, message = get_data(line) 
-                    messageBuffer.append(message) 
-                else:
-                    messageBuffer.append(line)
+        #conversationPath = chat_file  #replace with file upload
+        # with open(conversationPath.name, encoding="utf-8") as fp:
+        #     fp.readline() 
+        messageBuffer = [] 
+        datetime, author = None, None
+        # while True:
+        for line in chat_file:
+            if not line: 
+                break
+            line = line.decode('UTF-8') 
+            line = line.strip() 
+            if date_and_time(line): 
+                if len(messageBuffer) > 0: 
+                    parsedData.append([dateTime, author, ' '.join(messageBuffer)]) 
+                messageBuffer.clear() 
+                dateTime, author, message = get_data(line) 
+                messageBuffer.append(message) 
+            else:
+                messageBuffer.append(line)
     
         chat = pd.DataFrame(parsedData, columns=['DateTime', 'Author', 'Message']) 
 
@@ -178,10 +179,10 @@ with col1:
                 plt.xticks(rotation=90);
 
                 plt.subplots_adjust(wspace=0.4, hspace= 0.5)
-                wordcloud = WordCloud(stopwords=STOPWORDS, background_color='white').generate(text)
+                '''wordcloud = WordCloud(stopwords=STOPWORDS, background_color='white').generate(text)
                 plt.figure(figsize=(12,8))
                 plt.imshow(wordcloud, interpolation='bilinear')
-                plt.axis('off')
+                plt.axis('off')'''
                 st.pyplot(fig);
 
 
