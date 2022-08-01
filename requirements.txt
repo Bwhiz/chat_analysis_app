@@ -1,7 +1,6 @@
 regex
 matplotlib
 pandas
-emoji
 seaborn
 plotly
 wordcloud
