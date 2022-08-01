@@ -9,8 +9,9 @@ import emoji
 import seaborn as sns
 import plotly.express as px
 from collections import Counter
-#import wordcloud
-#from wordcloud import WordCloud, STOPWORDS
+import numpy as np
+import wordcloud
+from wordcloud import WordCloud, STOPWORDS
 
 
 #setting default app layout
@@ -168,23 +169,36 @@ with col1:
                 fig = plt.figure(figsize=(12,8))
                 plt.subplot(2,2,1)
                 sns.barplot(x=chat['Author'].value_counts()[:10], y=chat['Author'].value_counts()[:10].keys())
-                plt.title('Top 10 active members in the group my messages sent');
+                plt.title('Top 10 active members in the group my messages sent',fontweight='bold');
 
                 plt.subplot(2,2,2)
                 active_day = chat['Day'].value_counts()
                 sns.barplot(x=active_day.keys(), y=active_day.values)
-                plt.title('Most Active days')
+                plt.title('Most Active days',fontweight='bold')
                 plt.xlabel('Days')
                 plt.ylabel('No. of messages')
                 plt.xticks(rotation=90);
-
                 plt.subplots_adjust(wspace=0.4, hspace= 0.5)
-                '''wordcloud = WordCloud(stopwords=STOPWORDS, background_color='white').generate(text)
-                plt.figure(figsize=(12,8))
+                
+                def remove_urls(text):
+                    url_pattern = re.compile(r'https?://\S+|www\.\S+')
+                    return url_pattern.sub(r'', text)
+                chat_word_cloud = chat[['Message']].copy()
+                chat_word_cloud['Message']= chat_word_cloud['Message'].apply(remove_urls)
+                chat_word_cloud['Message']= chat_word_cloud['Message'].replace('nan', np.NaN)
+                chat_word_cloud['Message']= chat_word_cloud['Message'].replace('', np.NaN)
+                chat_word_cloud['Message']= chat_word_cloud['Message'].replace('<Media omitted>', np.NaN)
+                chat_word_cloud['Message']= chat_word_cloud.Message.str.replace(r"(a|j)?(ja)+(a|j)?", "jaja")
+                chat_word_cloud['Message']= chat_word_cloud.Message.str.replace(r"(a|j)?(jaja)+(a|j)?", "jaja")
+                text = " ".join(review for review in chat_word_cloud.Message.dropna())
+                
+                wordcloud = WordCloud(stopwords=STOPWORDS, background_color='white').generate(text)
+                fig2 = plt.figure(figsize=(12,8))
                 plt.imshow(wordcloud, interpolation='bilinear')
-                plt.axis('off')'''
+                plt.axis('off')
+                plt.title('WordCloud of most used words in the groupchat\n',fontweight='bold')
+                st.pyplot(fig2)
                 st.pyplot(fig);
-
 
 
                 emoji_list = list([a for b in chat.emoji for a in b])
