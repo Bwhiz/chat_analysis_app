@@ -5,4 +5,4 @@ The app can be found [here](https://bwhiz-chat-analysis-app-chat-analysis-jhsets
 
 n.b: This app only works for chats exported from android devices for now. 
 
-![alt text](Screenshot (59)_1.png)
+![alt text](https://github.com/Bwhiz/chat_analysis_app/blob/main/Screenshot%20(59)_1.png)
