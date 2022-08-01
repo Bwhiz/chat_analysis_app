@@ -2,6 +2,6 @@ regex
 matplotlib
 pandas
 seaborn
-emoji
+emoji==1.7.0
 plotly
 wordcloud
