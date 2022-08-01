@@ -127,7 +127,7 @@ with col1:
             emoji_list = []
             data = regex.findall(r'\X', text)
             for word in data:
-                if any(char in emoji.UNICODE_EMOJI['en'] for char in word):
+                if any(char in emoji.UNICODE_EMOJI for char in word):
                     emoji_list.append(word)
             return emoji_list
 
