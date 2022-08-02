@@ -169,7 +169,7 @@ with col1:
                 fig = plt.figure(figsize=(12,8))
                 plt.subplot(2,2,1)
                 sns.barplot(x=chat['Author'].value_counts()[:10], y=chat['Author'].value_counts()[:10].keys())
-                plt.title('Top 10 active members in the group my messages sent',fontweight='bold');
+                plt.title('Top 10 active members in the group by messages sent',fontweight='bold');
 
                 plt.subplot(2,2,2)
                 active_day = chat['Day'].value_counts()
